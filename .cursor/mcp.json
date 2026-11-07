@@ -3,6 +3,10 @@
     "ucoz-mcp": {
       "type": "http",
       "url": "https://www.ucoz.com/mcp"
+    },
+    "higgsfield": {
+      "type": "http",
+      "url": "https://mcp.higgsfield.ai/mcp"
     }
   }
 }
