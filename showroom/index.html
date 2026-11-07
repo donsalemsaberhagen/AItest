@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOPMANSHOPWORLD — Interactive Automotive Digital Showroom</title>
+  <meta name="description" content="Explore vehicle upgrade zones — Lighting, Body, Multimedia — then shop via native uCoz commerce." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Syne:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/showroom.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">TOPMAN<span>SHOP</span>WORLD</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Showroom</a>
+      <a class="hide-sm" href="catalog.html">Catalogue</a>
+      <a class="hide-sm" href="product.html">Product</a>
+      <a href="cart.html">Cart</a>
+      <a href="compat.html">Fitment</a>
+      <a class="btn btn-primary" href="https://topmanshopworld.clan.su/shop" rel="noopener">Live uCoz Shop</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Hero experience">
+      <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-fallback" aria-hidden="true"></div>
+      <div class="hero-copy">
+        <p class="hero-kicker">Interactive Automotive Digital Showroom</p>
+        <h1>ENGINEERED TO STAND OUT.</h1>
+        <p>Inspect a cinematic studio vehicle, activate upgrade zones, then continue into the native uCoz catalogue — commerce stays on platform rails.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#showcase">EXPLORE UPGRADES</a>
+          <a class="btn btn-ghost" href="compat.html">FIND YOUR VEHICLE</a>
+        </div>
+      </div>
+      <p class="scroll-hint motion-ok">Scroll to orbit</p>
+    </section>
+
+    <section class="section" id="showcase">
+      <div class="section-head">
+        <p class="badge">Layer 2 · Interactive Experience</p>
+        <h2>Interactive Vehicle Showcase</h2>
+        <p>Select Lighting, Body or Multimedia. The zone lights up and deep-links into the matching uCoz shop category. This visualization is stylized — not a certified CAD fitment model.</p>
+      </div>
+
+      <div class="showcase">
+        <div class="stage" aria-label="Vehicle stage">
+          <div class="stage-visual">
+            <div class="stage-car" aria-hidden="true"></div>
+            <div class="zone-glow lighting" aria-hidden="true"></div>
+            <div class="zone-glow body" aria-hidden="true"></div>
+            <div class="zone-glow multimedia" aria-hidden="true"></div>
+            <div class="hotspots">
+              <button type="button" class="hotspot" data-zone="lighting" data-label="Lighting" aria-label="Lighting zone" aria-pressed="false"></button>
+              <button type="button" class="hotspot" data-zone="body" data-label="Body" aria-label="Body zone" aria-pressed="false"></button>
+              <button type="button" class="hotspot" data-zone="multimedia" data-label="Multimedia" aria-label="Multimedia zone" aria-pressed="false"></button>
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <div class="zone-tabs" role="group" aria-label="Upgrade zones">
+            <button type="button" class="btn" data-zone-tab="lighting" aria-pressed="false">Lighting</button>
+            <button type="button" class="btn" data-zone-tab="body" aria-pressed="false">Body</button>
+            <button type="button" class="btn" data-zone-tab="multimedia" aria-pressed="false">Multimedia</button>
+          </div>
+          <h3 id="zone-title">Lighting</h3>
+          <p id="zone-copy">Activate a zone to highlight components and jump to the catalogue.</p>
+          <div class="btn-row">
+            <a id="zone-shop-link" class="btn btn-primary" href="https://topmanshopworld.clan.su/shop/lighting">Open Lighting catalogue</a>
+            <a class="btn" href="compat.html">Check compatibility</a>
+          </div>
+          <p class="lite-note">No JavaScript / no WebGL: use the catalogue links and Live uCoz Shop — prices and products remain reachable through native shop URLs.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p class="badge ok">Layer 1 · Native uCoz E-commerce</p>
+        <h2>Commerce stays on uCoz</h2>
+        <p>Cart, checkout, stock and orders use the Online Shop module. The showroom only guides attention into categories Lighting · Body · Multimedia.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="card-media" aria-hidden="true"></div>
+          <h3>Catalogue</h3>
+          <p class="meta">Grid / filters / categories</p>
+          <a class="btn" href="catalog.html">Preview layout</a>
+        </article>
+        <article class="card">
+          <div class="card-media" aria-hidden="true"></div>
+          <h3>Product experience</h3>
+          <p class="meta">Gallery · variants · fitment CTA</p>
+          <a class="btn" href="product.html">Preview card</a>
+        </article>
+        <article class="card">
+          <div class="card-media" aria-hidden="true"></div>
+          <h3>Cart &amp; fitment</h3>
+          <p class="meta">Native cart + compatibility request</p>
+          <div class="btn-row">
+            <a class="btn" href="cart.html">Cart</a>
+            <a class="btn" href="compat.html">Fitment</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>TOPMANSHOPWORLD Interactive Showroom prototype · Original concept inspired by motion-engineering principles studied from public demos (Arthur Smirnov portfolio). No third-party assets copied. Production template publish requires owner approval.</p>
+  </footer>
+
+  <noscript>
+    <p class="noscript-note" style="margin:1rem">JavaScript is off. Browse the <a href="https://topmanshopworld.clan.su/shop">uCoz shop</a> directly.</p>
+  </noscript>
+
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
+  <script src="js/showroom.js" defer></script>
+</body>
+</html>

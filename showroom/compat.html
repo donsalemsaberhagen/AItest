@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compatibility Check — TOPMANSHOPWORLD</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Syne:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/showroom.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">TOPMAN<span>SHOP</span>WORLD</a>
+    <nav class="nav">
+      <a href="index.html">Showroom</a>
+      <a href="catalog.html">Catalogue</a>
+      <a href="compat.html" aria-current="page">Fitment</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+  <main class="section">
+    <div class="section-head">
+      <p class="badge">FIND YOUR VEHICLE</p>
+      <h2>Request Compatibility Check</h2>
+      <p>Staff verifies platform fit before fulfilment. On production this maps to a uCoz mail form or order note — never a silent “guaranteed fit” claim from the 3D layer.</p>
+    </div>
+    <form class="form" id="compat-form">
+      <div class="field">
+        <label for="make">Make</label>
+        <input id="make" name="make" required placeholder="e.g. Toyota" />
+      </div>
+      <div class="field">
+        <label for="model">Model</label>
+        <input id="model" name="model" required placeholder="e.g. Camry" />
+      </div>
+      <div class="field">
+        <label for="year">Year</label>
+        <input id="year" name="year" required inputmode="numeric" placeholder="2019" />
+      </div>
+      <div class="field">
+        <label for="vin">VIN (optional)</label>
+        <input id="vin" name="vin" maxlength="17" placeholder="17 characters" />
+      </div>
+      <div class="field">
+        <label for="zone">Upgrade zone</label>
+        <select id="zone" name="zone">
+          <option>Lighting</option>
+          <option>Body</option>
+          <option>Multimedia</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="notes" placeholder="Headlamp generation, trim, existing aftermarket…"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit request</button>
+      <div id="compat-result" class="lite-note" hidden></div>
+    </form>
+  </main>
+  <footer class="site-footer"><p>Prototype form · wire to uCoz mail form before go-live.</p></footer>
+  <script src="js/showroom.js" defer></script>
+</body>
+</html>
