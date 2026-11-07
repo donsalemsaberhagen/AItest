@@ -1,6 +1,6 @@
 # uCoz AI — стек для создания нового сайта
 
-Официальные источники: [MCP](https://www.ucoz.ru/ai/mcp) · [Skills](https://www.ucoz.ru/ai/skills) · [Cursor setup](https://www.ucoz.ru/help/razrabotka-api/podklyuchenie-ucoz-mcp-k-cursor) · [AI-контент в панели](https://www.ucoz.ru/ai/content)
+Официальные источники: [MCP](https://www.ucoz.ru/ai/mcp) · [Skills](https://www.ucoz.ru/ai/skills) · [Cursor setup](https://www.ucoz.ru/help/razrabotka-api/podklyuchenie-ucoz-mcp-k-cursor) · [AI-контент](https://www.ucoz.ru/ai/content) · [AI Code](https://www.ucoz.ru/help/aicode/chto-takoe-ai-code-i-kak-im-polzovatsya)
 
 ## Что установлено
 
@@ -9,6 +9,25 @@
 | Remote MCP `ucoz-mcp` | `.mcp.json`, `.cursor/mcp.json` → `https://www.ucoz.com/mcp` (эквивалент `https://www.ucoz.ru/mcp`) | Подключён, OAuth |
 | 9 agent skills | `.cursor/skills/` и `~/.cursor/skills/` | Установлены |
 | Cursor plugin manifest | `.cursor-plugin/plugin.json` | Установлен |
+| Higgsfield MCP | `.cursor/plugins/higgsfield/` (offline copy) | Auth отклонена; в активный `.mcp.json` не добавлен |
+
+## AI Code vs MCP (важно)
+
+| | **AI Code** (панель uCoz) | **uCoz MCP** (Cursor) |
+|--|---------------------------|------------------------|
+| Где | Управление дизайном → кнопка AI Code | IDE / агент через `ucoz-mcp` |
+| Что делает | HTML/CSS/JS правки **открытого** шаблона | Сайты, модули, шаблоны, контент, файлы, магазин… |
+| Картинки | Не генерирует; принимает до 5 референсов | Через skills + внешние MCP (Fal / Higgsfield) |
+| PHP/Python | Нет | Да, через `apps_*` / server-scripts skill |
+| Тариф | Оптимальный / Магазин / Максимальный, 100 запросов/мес | MCP на любом тарифе, включая бесплатный |
+
+AI Code **не является MCP** и в Cursor не ставится. Для агента используем MCP + skills.
+
+## Формат MCP-конфига (как в Cursor plugins)
+
+Образец из [cursor/plugins …/github/mcp.json](https://github.com/cursor/plugins/blob/ae5650febf4320793844c12c4adaa937f417f8da/third_party/github/mcp.json): `type: "http"` + `url` (+ опционально `headers` с секретами). Для uCoz/Higgsfield API-ключ не нужен — OAuth в браузере.
+
+Higgsfield (`https://mcp.higgsfield.ai/mcp`): Marketplace → Add → Sign in, либо вручную в `mcp.json`. Нужна **платная** подписка Higgsfield. Сейчас auth отклонена.
 
 ## MCP-инструменты (создание сайта)
 
