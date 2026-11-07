@@ -10,6 +10,9 @@
 | 9 agent skills | `.cursor/skills/` и `~/.cursor/skills/` | Установлены |
 | Cursor plugin manifest | `.cursor-plugin/plugin.json` | Установлен |
 | Higgsfield MCP | `.mcp.json` + `.cursor/plugins/higgsfield/` | **Подключён** (`namespaceStatus: ready`). Demo: Ads Studio brand research for `topmanshopworld.clan.su` (`brand_id` ac3ae229-…) |
+| Refero MCP | `.mcp.json` → `https://api.refero.design/mcp` + `.cursor/plugins/refero/` | Сконфигурирован; OAuth при первом подключении (платный план для live research) |
+| Refero skill | `.cursor/skills/refero-design/` + `.agents/skills/refero-design/` (`npx skills add`) | Установлен |
+| UI UX Pro Max (uupm.cc) | `.cursor/skills/{ui-ux-pro-max,design,design-system,ui-styling,brand,banner-design,slides}/` | Установлен через `uipro init --ai cursor` — **это skill, не MCP** |
 
 ## AI Code vs MCP (важно)
 
@@ -27,7 +30,11 @@ AI Code **не является MCP** и в Cursor не ставится. Для
 
 Образец из [cursor/plugins …/github/mcp.json](https://github.com/cursor/plugins/blob/ae5650febf4320793844c12c4adaa937f417f8da/third_party/github/mcp.json): `type: "http"` + `url` (+ опционально `headers` с секретами). Для uCoz/Higgsfield API-ключ не нужен — OAuth в браузере.
 
-Higgsfield (`https://mcp.higgsfield.ai/mcp`): Marketplace → Add → Sign in, либо вручную в `mcp.json`. Нужна **платная** подписка Higgsfield. Сейчас auth отклонена.
+Higgsfield (`https://mcp.higgsfield.ai/mcp`): Marketplace → Add → Sign in, либо вручную в `mcp.json`. Нужна **платная** подписка Higgsfield.
+
+Refero (`https://api.refero.design/mcp`): skill + read-only MCP (styles / screens / flows). Установка: `npx skills add https://github.com/referodesign/refero_skill --skill refero-design`. Live research — OAuth + платный план Refero; craft-references работают без аккаунта.
+
+UI UX Pro Max ([uupm.cc](https://uupm.cc/#styles)): CLI `uipro` / пакет `ui-ux-pro-max-cli`. Это **не MCP** — локальные skills + поиск стилей через скрипты в `ui-ux-pro-max`. Установка: `uipro init --ai cursor` (проект) и опционально `--global`.
 
 ## MCP-инструменты (создание сайта)
 

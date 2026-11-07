@@ -7,6 +7,10 @@
     "higgsfield": {
       "type": "http",
       "url": "https://mcp.higgsfield.ai/mcp"
+    },
+    "refero": {
+      "type": "http",
+      "url": "https://api.refero.design/mcp"
     }
   }
 }
