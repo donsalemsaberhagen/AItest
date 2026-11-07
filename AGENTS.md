@@ -1,0 +1,57 @@
+# uCoz AI — стек для создания нового сайта
+
+Официальные источники: [MCP](https://www.ucoz.ru/ai/mcp) · [Skills](https://www.ucoz.ru/ai/skills) · [Cursor setup](https://www.ucoz.ru/help/razrabotka-api/podklyuchenie-ucoz-mcp-k-cursor) · [AI-контент в панели](https://www.ucoz.ru/ai/content)
+
+## Что установлено
+
+| Компонент | Где | Статус |
+|-----------|-----|--------|
+| Remote MCP `ucoz-mcp` | `.mcp.json`, `.cursor/mcp.json` → `https://www.ucoz.com/mcp` (эквивалент `https://www.ucoz.ru/mcp`) | Подключён, OAuth |
+| 9 agent skills | `.cursor/skills/` и `~/.cursor/skills/` | Установлены |
+| Cursor plugin manifest | `.cursor-plugin/plugin.json` | Установлен |
+
+## MCP-инструменты (создание сайта)
+
+1. `list_sites` / `create_site` / `select_site` — аккаунт и выбор сайта  
+2. `modules_*` — установка модулей  
+3. `tmaker_*` + `templates_*` — каркас и шаблоны всего сайта  
+4. `content_*` — материалы (новости, блог, статьи, …)  
+5. `files_*` / `ftp_*` — файлы и ассеты  
+6. `shop_*`, `users_*`, `subscriptions_*`, `apps_*` — по необходимости  
+7. `skills_tool` — каталог/resolve/register_usage скиллов  
+
+Деструктивные действия требуют `confirm: true` от пользователя.
+
+## Skills для нового сайта с нуля
+
+| Порядок | Skill | Задача |
+|---------|-------|--------|
+| 1 | `ucoz-template-creator-skill` | Оригинальный шаблон всего сайта (framework + CSS + модули) |
+| 2 | `ucoz-landing-skill` | Главная / лендинг |
+| 3 | `ucoz-content-manager-skill` | Наполнение модулей, SEO, категории, обложки |
+| 4 | `ucoz-design-editor-skill` | Доработка дизайна/CSS без полной пересборки |
+| 5 | `ucoz-popup-design-skill` | Системные окна и toasts |
+| опц. | `ucoz-shop-optimizer-skill` | Интернет-магазин |
+| опц. | `ucoz-server-scripts-skill` | PHP/Node/Python backend |
+| опц. | `ucoz-site-translator-skill` | Локализация |
+| опц. | `ucoz-ad-campaign-landing-skill` | Рекламные лендинги + UTM |
+
+Перед работой: `skills_tool(action="resolve", task=…)` → читать `SKILL.md` найденного скилла.
+
+## AI-контент в панели vs MCP
+
+- **AI-генерация контента** ([/ai/content](https://www.ucoz.ru/ai/content)) — встроенный инструмент панели управления (новости, блог, publ, load, board). Включается в «Инструменты → AI-генерация контента». Это не MCP-скилл.  
+- **MCP + skills** — внешний агент (Cursor) управляет сайтом через API. Для контента через агента используй `ucoz-content-manager-skill`.
+
+## Типовой сценарий «новый сайт»
+
+1. Уточнить нишу, язык, модули, домен/зону (`create_site`: `addr` + `dom`).  
+2. `create_site` → сайт сразу становится активным (или `list_sites` + `select_site`).  
+3. `modules_write` — нужные модули + uAPI.  
+4. Читать и следовать `ucoz-template-creator-skill` (каркас → CSS → validate → publish с подтверждением).  
+5. Лендинг главной — `ucoz-landing-skill`.  
+6. Контент — `ucoz-content-manager-skill`.  
+7. Попапы — `ucoz-popup-design-skill`.  
+8. После успешной работы: `skills_tool(action="register_usage", skill_id=…)`.
+
+Не публиковать каркас и не менять продакшен без явного подтверждения владельца.
