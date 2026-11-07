@@ -9,7 +9,7 @@
 | Remote MCP `ucoz-mcp` | `.mcp.json`, `.cursor/mcp.json` → `https://www.ucoz.com/mcp` (эквивалент `https://www.ucoz.ru/mcp`) | Подключён, OAuth |
 | 9 agent skills | `.cursor/skills/` и `~/.cursor/skills/` | Установлены |
 | Cursor plugin manifest | `.cursor-plugin/plugin.json` | Установлен |
-| Higgsfield MCP | `.cursor/plugins/higgsfield/` (offline copy) | Auth отклонена; в активный `.mcp.json` не добавлен |
+| Higgsfield MCP | `.cursor/plugins/higgsfield/` (offline copy) | **Не в Cloud Agent:** `Authentication URL unavailable for this cloud MCP server`. Подключать в Cursor Desktop (Marketplace → Higgsfield → Sign in) |
 
 ## AI Code vs MCP (важно)
 
